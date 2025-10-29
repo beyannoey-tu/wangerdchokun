@@ -1,120 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Happy Birthday my chokunchicken</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday, My Chokun 🩷</title>
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Noto+Sans+Thai+Looped:wght@300;400;700&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
   
-  <link rel="stylesheet" href="style.css">
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Sound -->
+  <audio id="openSound" src="https://cdn.pixabay.com/download/audio/2023/02/22/audio_38d9a46de8.mp3?filename=paper-flip-14630.mp3"></audio>
 </head>
-<body>
 
-  <!-- Envelope Popup -->
-  <div id="envelope-popup" class="popup-overlay">
-    <div class="envelope">
-      <div class="flap"></div>
-      <div class="letter">
-        <p>
-          hey my chokunchicken,<br><br>
-          happy birthday na bby — you’re my home.<br>
-          You know I live for Friday every week.<br>
-          thank you for everything kub.<br>
-          rak bby tee sud, yark stay kab bby forever loey.
-        </p>
-        <button id="openButton" class="soft-btn">Open our moments 💖</button>
-      </div>
-    </div>
-    <audio id="openSound" src="paperopen.mp3" preload="auto"></audio>
-  </div>
-
-  <!-- Navigation -->
+<body class="section-cream">
   <header class="topbar fade-up">
-    <div class="logo">for chokunchicken</div>
-    <div class="menu-toggle" id="menuToggle">☰</div>
-    <nav class="nav" id="navMenu">
-      <a href="#hero">Home</a>
-      <a href="#photos">Our Moments</a>
-      <a href="#video">Video</a>
-      <a href="reason.html">100 Reasons</a>
-    </nav>
+    <div class="logo">For My Chokun ♡</div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero section-cream fade-up" id="hero">
-    <div class="hero-text">
-      <h1>Our Story Begins</h1>
-      <p>For every smile, every drive, every laugh — it’s always you.</p>
+  <main class="container fade-up">
+    <h1 class="main-title">Happy Birthday na bby ♡</h1>
+    <p class="subtext">You’re my home — thank you for being my everything.</p>
+
+    <button class="open-popup">Open Letter 💌</button>
+  </main>
+
+  <!-- Popup Letter -->
+  <div class="popup-overlay"></div>
+  <div class="popup">
+    <button class="close-popup">×</button>
+    <div class="popup-content">
+      <p>hey my chokunchicken,<br>
+      happy birthday na bby — you’re my home.<br>
+      You know I live for Friday every week.<br>
+      thank you for everything kub.<br>
+      rak bby tee sud, yark stay kab bby forever loey.</p>
+      <a href="reason.html" class="next-btn">Go to 100 Reasons →</a>
     </div>
-  </section>
-
-  <!-- Our Moments Section -->
-  <section class="photo-section fade-up" id="photos">
-    <h2>Our Moments</h2>
-
-    <h3>My Photo Booth duo forever</h3>
-    <div class="scroll-gallery">
-      <img src="imgphotobooth/IMG_4341.JPG">
-      <img src="imgphotobooth/IMG_7064.jpg">
-      <img src="imgphotobooth/IMG_7250.JPG">
-      <img src="imgphotobooth/IMG_8244.JPG">
-      <img src="imgphotobooth/IMG_8245.JPG">
-      <img src="imgphotobooth/IMG_8281.JPG">
-    </div>
-
-    <h3>I love when you always pick me up at Rangsit</h3>
-    <p>making that long 50 km drive every week just so we can be together</p>
-    <div class="scroll-gallery">
-      <img src="drive/64193E4C-5AA6-47F1-A984-B524358.JPG">
-      <img src="drive/E46B3EE1-BA06-473A-AD82-D7ECB02.JPG">
-      <img src="drive/IMG_4378.JPG">
-      <img src="drive/IMG_8540.JPG">
-      <img src="drive/IMG_9199.jpg">
-    </div>
-
-    <h3>I love running with you</h3>
-    <div class="scroll-gallery">
-      <img src="running/IMG_4025.jpg">
-      <img src="running/IMG_4379.JPG">
-      <img src="running/IMG_6158.JPG">
-      <img src="running/IMG_6927.JPG">
-      <img src="running/IMG_6998.JPG">
-      <img src="running/IMG_9044.JPG">
-    </div>
-
-    <h3>I love eating with you</h3>
-    <div class="scroll-gallery">
-      <img src="eating/IMG_0703.jpg">
-      <img src="eating/IMG_6236.JPG">
-      <img src="eating/IMG_7112.JPG">
-      <img src="eating/IMG_7810.JPG">
-      <img src="eating/IMG_8443.jpg">
-    </div>
-
-    <h3>I love spending time with you</h3>
-    <div class="scroll-gallery">
-      <img src="spendtime/FullSizeRender.jpg">
-      <img src="spendtime/IMG_2416.jpg">
-      <img src="spendtime/IMG_4383.JPG">
-      <img src="spendtime/IMG_6053.JPG">
-      <img src="spendtime/IMG_6322.jpg">
-      <img src="spendtime/IMG_6767.JPG">
-      <img src="spendtime/IMG_7850.JPG">
-    </div>
-  </section>
-
-  <!-- Video Section -->
-  <section class="video-section fade-up" id="video">
-    <h2>Our Video Memory</h2>
-    <video controls class="video-box">
-      <source src="video/copy_7F39174-162E-4A95-B860-102E9E8FD8F3.MOV" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-  </section>
+  </div>
 
   <script src="script.js"></script>
 </body>
