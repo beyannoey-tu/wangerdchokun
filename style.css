@@ -1,0 +1,71 @@
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{scroll-behavior:smooth;font-family:"Noto Sans Thai Looped","DM Sans","Quicksand",sans-serif;color:#66001F;background:#FEFCEF;line-height:1.8}
+
+/* NAV */
+.topbar{position:fixed;top:0;width:100%;display:flex;justify-content:space-between;align-items:center;padding:15px 25px;background:rgba(255,255,255,0.7);backdrop-filter:blur(10px);z-index:100}
+.logo{font-weight:700;}
+.nav{display:flex;gap:25px;}
+.nav a{color:#66001F;text-decoration:none;font-weight:500;}
+.nav a:hover{text-decoration:underline;}
+.menu-toggle{display:none;font-size:1.8rem;cursor:pointer;}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:120px 20px;}
+.hero h1{font-family:"Quicksand";font-size:2.3rem;margin-bottom:25px;}
+.karaoke{font-size:1.1rem;}
+
+/* SLIDESHOW */
+.photo-section{text-align:center;padding:120px 20px;}
+.photo-section h2{font-family:"Quicksand";font-size:1.9rem;margin-bottom:30px;}
+.slideshow-container{max-width:900px;margin:auto;position:relative;}
+.slide{display:none;}
+.slide img{width:100%;}
+
+/* VIDEO */
+.video-section{text-align:center;padding:120px 20px;}
+.video-box{width:100%;}
+
+/* FINAL */
+.final-section{text-align:center;padding:120px 20px;}
+.final-message{font-size:1.2rem;margin-bottom:40px;}
+.soft-btn{background:#66001F;color:#fff;padding:12px 30px;border-radius:40px;text-decoration:none;transition:.3s;}
+.soft-btn:hover{background:#8a2b48;}
+
+/* ENVELOPE POPUP */
+.envelope-container{position:fixed;top:0;left:0;width:100%;height:100vh;background:#FEFCEF;display:flex;align-items:center;justify-content:center;z-index:1000;transition:opacity 1s;}
+.envelope{width:300px;height:200px;position:relative;background:#66001F;cursor:pointer;}
+.envelope-flap{position:absolute;top:0;left:0;width:0;height:0;border-left:150px solid transparent;border-right:150px solid transparent;border-bottom:100px solid #8A2B48;transition:.8s;}
+.envelope-letter{position:absolute;bottom:0;left:0;width:100%;height:0;background:#fff;color:#66001F;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px;transition:height 1s;}
+.envelope.open .envelope-flap{transform:rotateX(180deg);transform-origin:top;}
+.envelope.open .envelope-letter{height:100%;}
+.envelope.close .envelope-flap{transform:rotateX(0);}
+.envelope.close .envelope-letter{height:0;}
+
+/* ANIMATION */
+.fade-up{opacity:0;transform:translateY(30px);transition:all .5s ease-out;}
+.fade-up.show{opacity:1;transform:translateY(0);}
+@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .nav{display:none;flex-direction:column;gap:10px;position:absolute;top:60px;width:100%;background:#FEFCEF;padding:15px 0;}
+  .nav.show{display:flex;}
+  .menu-toggle{display:block;}
+  .hero h1{font-size:1.8rem;}
+}
+/* 100 REASONS */
+.page-100 .container{max-width:900px;margin:140px auto;padding:0 20px;}
+.page-100 h1{text-align:center;font-family:"Quicksand";margin-bottom:40px;}
+.page-100 ol{line-height:1.9;font-size:1.05rem;}
+.nav-btns{text-align:center;margin-top:30px;}
+.back-link{color:#66001F;text-decoration:none;}
+
+/* OUR MOMENTS PAGE */
+.page-detail .container{max-width:900px;margin:140px auto;padding:20px;}
+.topic{margin-bottom:80px;}
+.topic h2{font-family:"Quicksand";margin-bottom:15px;font-size:1.5rem;}
+.topic p{margin-bottom:15px;}
+.scroll-gallery{display:flex;overflow-x:auto;gap:15px;scroll-snap-type:x mandatory;padding-bottom:10px;}
+.scroll-gallery img{width:250px;height:auto;scroll-snap-align:start;flex-shrink:0;}
+.scroll-gallery::-webkit-scrollbar{height:6px;}
+.scroll-gallery::-webkit-scrollbar-thumb{background:#66001F;border-radius:3px;}
