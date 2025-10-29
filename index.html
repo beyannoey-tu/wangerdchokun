@@ -3,32 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Happy Birthday, my chokunchicken</title>
+  <title>Happy Birthday my chokunchicken</title>
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Noto+Sans+Thai+Looped:wght@300;400;700&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+  
   <link rel="stylesheet" href="style.css">
 </head>
+<body>
 
-<body class="page-main">
-
-  <!-- ENVELOPE POPUP -->
-  <div class="envelope-container" id="envelopePopup">
-    <div class="envelope" id="envelope">
-      <div class="envelope-flap" id="flap"></div>
-      <div class="envelope-letter" id="letter">
+  <!-- Envelope Popup -->
+  <div id="envelope-popup" class="popup-overlay">
+    <div class="envelope">
+      <div class="flap"></div>
+      <div class="letter">
         <p>
-          hey my chokunchicken,<br>
+          hey my chokunchicken,<br><br>
           happy birthday na bby — you’re my home.<br>
-          you know I live for Friday every week.<br>
+          You know I live for Friday every week.<br>
           thank you for everything kub.<br>
           rak bby tee sud, yark stay kab bby forever loey.
         </p>
-        <button class="soft-btn" id="openMain">Continue →</button>
+        <button id="openButton" class="soft-btn">Open our moments 💖</button>
       </div>
     </div>
+    <audio id="openSound" src="paperopen.mp3" preload="auto"></audio>
   </div>
 
   <!-- Navigation -->
@@ -37,48 +38,84 @@
     <div class="menu-toggle" id="menuToggle">☰</div>
     <nav class="nav" id="navMenu">
       <a href="#hero">Home</a>
-      <a href="#photos">Photos</a>
+      <a href="#photos">Our Moments</a>
       <a href="#video">Video</a>
-      <a href="#final">Letter</a>
-      <a href="bf1.html">100 Reasons</a>
-      <a href="reason.html">Our Moments</a>
+      <a href="reason.html">100 Reasons</a>
     </nav>
   </header>
 
-  <!-- Hero -->
-  <section class="hero fade-up" id="hero">
+  <!-- Hero Section -->
+  <section class="hero section-cream fade-up" id="hero">
     <div class="hero-text">
-      <h1>Happy birthday, my chokunchicken</h1>
-      <p class="karaoke">rak bby tee sud,<br> yark stay with bby forever loey.<br>I love you, love you sooooo much</p>
+      <h1>Our Story Begins</h1>
+      <p>For every smile, every drive, every laugh — it’s always you.</p>
     </div>
   </section>
 
-  <!-- Photos -->
+  <!-- Our Moments Section -->
   <section class="photo-section fade-up" id="photos">
-    <h2>our moments</h2>
-    <div class="slideshow-container">
-      <div class="slide fade"><img src="img/IMG_3D4B83D1-BD85-461E-B75B-A0C12E7A12E3.jpeg" alt=""></div>
-      <div class="slide fade"><img src="img/IMG_BBE2E772-67AA-4479-BB81-657ECF9DE6AF.jpeg" alt=""></div>
-      <div class="slide fade"><img src="img/IMG_6FF3A1CD-7950-4A83-B335-033C358777E6.jpeg" alt=""></div>
+    <h2>Our Moments</h2>
+
+    <h3>My Photo Booth duo forever</h3>
+    <div class="scroll-gallery">
+      <img src="imgphotobooth/IMG_4341.JPG">
+      <img src="imgphotobooth/IMG_7064.jpg">
+      <img src="imgphotobooth/IMG_7250.JPG">
+      <img src="imgphotobooth/IMG_8244.JPG">
+      <img src="imgphotobooth/IMG_8245.JPG">
+      <img src="imgphotobooth/IMG_8281.JPG">
+    </div>
+
+    <h3>I love when you always pick me up at Rangsit</h3>
+    <p>making that long 50 km drive every week just so we can be together</p>
+    <div class="scroll-gallery">
+      <img src="drive/64193E4C-5AA6-47F1-A984-B524358.JPG">
+      <img src="drive/E46B3EE1-BA06-473A-AD82-D7ECB02.JPG">
+      <img src="drive/IMG_4378.JPG">
+      <img src="drive/IMG_8540.JPG">
+      <img src="drive/IMG_9199.jpg">
+    </div>
+
+    <h3>I love running with you</h3>
+    <div class="scroll-gallery">
+      <img src="running/IMG_4025.jpg">
+      <img src="running/IMG_4379.JPG">
+      <img src="running/IMG_6158.JPG">
+      <img src="running/IMG_6927.JPG">
+      <img src="running/IMG_6998.JPG">
+      <img src="running/IMG_9044.JPG">
+    </div>
+
+    <h3>I love eating with you</h3>
+    <div class="scroll-gallery">
+      <img src="eating/IMG_0703.jpg">
+      <img src="eating/IMG_6236.JPG">
+      <img src="eating/IMG_7112.JPG">
+      <img src="eating/IMG_7810.JPG">
+      <img src="eating/IMG_8443.jpg">
+    </div>
+
+    <h3>I love spending time with you</h3>
+    <div class="scroll-gallery">
+      <img src="spendtime/FullSizeRender.jpg">
+      <img src="spendtime/IMG_2416.jpg">
+      <img src="spendtime/IMG_4383.JPG">
+      <img src="spendtime/IMG_6053.JPG">
+      <img src="spendtime/IMG_6322.jpg">
+      <img src="spendtime/IMG_6767.JPG">
+      <img src="spendtime/IMG_7850.JPG">
     </div>
   </section>
 
-  <!-- Video -->
+  <!-- Video Section -->
   <section class="video-section fade-up" id="video">
-    <h2>our video memory</h2>
-    <video controls width="100%" class="video-box">
-      <source src="img/copy_7F39174-162E-4A95-B860-102E9E8FD8F3.MOV" type="video/mp4">
-      Your browser does not support video.
+    <h2>Our Video Memory</h2>
+    <video controls class="video-box">
+      <source src="video/copy_7F39174-162E-4A95-B860-102E9E8FD8F3.MOV" type="video/mp4">
+      Your browser does not support the video tag.
     </video>
   </section>
 
-  <!-- Final -->
-  <section class="final-section fade-up" id="final">
-    <p class="final-message">I love you, and I’m with you<br>for as long as you want me to be.</p>
-    <a href="bf1.html" class="soft-btn">see 100 reasons</a>
-  </section>
-
-  <audio id="paperSound" src="paperopen.mp3" preload="auto"></audio>
   <script src="script.js"></script>
 </body>
 </html>

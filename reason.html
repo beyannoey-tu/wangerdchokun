@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Our Moments</title>
+  <title>100 เหตุผลที่เค้ารักบี๋</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,73 +11,22 @@
 
   <link rel="stylesheet" href="style.css" />
 </head>
-<body class="page-detail">
+<body class="page-100">
 
   <header class="topbar fade-up">
-    <div class="logo">our moments</div>
-    <a href="bf.html" class="back-link">← back</a>
+    <div class="logo">100 Reasons</div>
+    <a href="index.html" class="back-link">← Back</a>
   </header>
 
   <div class="container fade-up">
-    <h1>our moments with my bby</h1>
+    <h1>100 Reasons Why I Love You</h1>
+    <ol id="reasonList" class="fade-up"></ol>
 
-    <section class="topic">
-      <h2>My Photo Booth duo forever</h2>
-      <div class="scroll-gallery">
-        <img src="img/booth1.jpg" alt="">
-        <img src="img/booth2.jpg" alt="">
-        <img src="img/booth3.jpg" alt="">
-        <img src="img/booth4.jpg" alt="">
-        <img src="img/booth5.jpg" alt="">
-      </div>
-    </section>
-
-    <section class="topic">
-      <h2>I love when you always pick me up at Rangsit</h2>
-      <p>making that long 50 km drive every week just so we can be together</p>
-      <div class="scroll-gallery">
-        <img src="img/drive1.jpg" alt="">
-        <img src="img/drive2.jpg" alt="">
-        <img src="img/drive3.jpg" alt="">
-        <img src="img/drive4.jpg" alt="">
-        <img src="img/drive5.jpg" alt="">
-      </div>
-    </section>
-
-    <section class="topic">
-      <h2>I love running with you</h2>
-      <div class="scroll-gallery">
-        <img src="img/run1.jpg" alt="">
-        <img src="img/run2.jpg" alt="">
-        <img src="img/run3.jpg" alt="">
-        <img src="img/run4.jpg" alt="">
-        <img src="img/run5.jpg" alt="">
-      </div>
-    </section>
-
-    <section class="topic">
-      <h2>I love eating with you</h2>
-      <div class="scroll-gallery">
-        <img src="img/eat1.jpg" alt="">
-        <img src="img/eat2.jpg" alt="">
-        <img src="img/eat3.jpg" alt="">
-        <img src="img/eat4.jpg" alt="">
-        <img src="img/eat5.jpg" alt="">
-      </div>
-    </section>
-
-    <section class="topic">
-      <h2>I love spending time with you</h2>
-      <div class="scroll-gallery">
-        <img src="img/spend1.jpg" alt="">
-        <img src="img/spend2.jpg" alt="">
-        <img src="img/spend3.jpg" alt="">
-        <img src="img/spend4.jpg" alt="">
-        <img src="img/spend5.jpg" alt="">
-        <img src="img/spend6.jpg" alt="">
-        <img src="img/spend7.jpg" alt="">
-      </div>
-    </section>
+    <div class="nav-btns fade-up">
+      <button class="soft-btn" id="prevBtn">Previous</button>
+      <button class="soft-btn" id="nextBtn">Next</button>
+    </div>
+    <div class="page-info" id="pageInfo">Page 1 / 5</div>
   </div>
 
   <script src="script.js"></script>
