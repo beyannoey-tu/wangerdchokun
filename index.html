@@ -1,45 +1,132 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Happy Birthday, My Chokun 🩷</title>
+  <title>Happy Birthday, my Chokunchicken</title>
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
-  
-  <!-- CSS -->
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fahkwang:wght@300;400;600&family=Gruppo&family=Unbounded:wght@400;600;700&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css" />
-
-  <!-- Sound -->
-  <audio id="openSound" src="https://cdn.pixabay.com/download/audio/2023/02/22/audio_38d9a46de8.mp3?filename=paper-flip-14630.mp3"></audio>
 </head>
+<body>
 
-<body class="section-cream">
-  <header class="topbar fade-up">
-    <div class="logo">For My Chokun ♡</div>
-  </header>
-
-  <main class="container fade-up">
-    <h1 class="main-title">Happy Birthday na bby ♡</h1>
-    <p class="subtext">You’re my home — thank you for being my everything.</p>
-
-    <button class="open-popup">Open Letter 💌</button>
-  </main>
-
-  <!-- Popup Letter -->
-  <div class="popup-overlay"></div>
-  <div class="popup">
-    <button class="close-popup">×</button>
-    <div class="popup-content">
-      <p>hey my chokunchicken,<br>
-      happy birthday na bby — you’re my home.<br>
-      You know I live for Friday every week.<br>
-      thank you for everything kub.<br>
-      rak bby tee sud, yark stay kab bby forever loey.</p>
-      <a href="reason.html" class="next-btn">Go to 100 Reasons →</a>
+  <!-- ✉️ Letter Popup -->
+  <div class="letter-popup" id="letterPopup">
+    <div class="letter-content fade-up">
+      <h1>💌 My Letter</h1>
+      <p>
+        hey my chokunchicken,<br>
+        happy birthday na bby — you’re my home.<br>
+        You know I live for Friday every week.<br>
+        thank you for everything kub.<br>
+        rak bby tee sud, yark stay kab bby forever loey.
+      </p>
+      <button id="openLetter" class="soft-btn">Open my letter</button>
     </div>
   </div>
+
+  <audio id="paperSound" src="open.mp3" preload="auto"></audio>
+
+  <!-- Navbar -->
+  <header class="topbar">
+    <div class="logo">for chokunchicken</div>
+    <nav class="nav">
+      <a href="#home">Home</a>
+      <a href="#moments">Our Moments</a>
+      <a href="#reasons">100 Reasons</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero section-cream fade-up">
+    <h1>Happy Birthday, my Chokunchicken</h1>
+    <p class="karaoke">rak bby tee sud — yark stay with bby forever loey</p>
+  </section>
+
+  <!-- OUR MOMENTS -->
+  <section id="moments" class="moments-section fade-up">
+    <h2>Our Moments with my bby</h2>
+
+    <div class="moment-category">
+      <h3>My Photo Booth Duo Forever</h3>
+      <div class="photo-scroll">
+        <img src="imgphotobooth/1.jpeg">
+        <img src="imgphotobooth/2.jpeg">
+        <img src="imgphotobooth/3.jpeg">
+        <img src="imgphotobooth/4.jpeg">
+        <img src="imgphotobooth/5.jpeg">
+      </div>
+    </div>
+
+    <div class="moment-category">
+      <h3>I love when you always pick me up at Rangsit</h3>
+      <p>making that long 50 km drive every week just so we can be together.</p>
+      <div class="photo-scroll">
+        <img src="drive/1.jpeg">
+        <img src="drive/2.jpeg">
+        <img src="drive/3.jpeg">
+        <img src="drive/4.jpeg">
+        <img src="drive/5.jpeg">
+      </div>
+    </div>
+
+    <div class="moment-category">
+      <h3>I love running with you</h3>
+      <div class="photo-scroll">
+        <img src="running/1.jpeg">
+        <img src="running/2.jpeg">
+        <img src="running/3.jpeg">
+        <img src="running/4.jpeg">
+        <img src="running/5.jpeg">
+      </div>
+    </div>
+
+    <div class="moment-category">
+      <h3>I love eating with you</h3>
+      <div class="photo-scroll">
+        <img src="eating/1.jpeg">
+        <img src="eating/2.jpeg">
+        <img src="eating/3.jpeg">
+        <img src="eating/4.jpeg">
+        <img src="eating/5.jpeg">
+      </div>
+    </div>
+
+    <div class="moment-category">
+      <h3>I love spending time with you</h3>
+      <div class="photo-scroll">
+        <img src="spendtime/1.jpeg">
+        <img src="spendtime/2.jpeg">
+        <img src="spendtime/3.jpeg">
+        <img src="spendtime/4.jpeg">
+        <img src="spendtime/5.jpeg">
+        <img src="spendtime/6.jpeg">
+        <img src="spendtime/7.jpeg">
+      </div>
+    </div>
+
+    <div class="moment-category video fade-up">
+      <h3>Our video memory</h3>
+      <video controls>
+        <source src="cho.MOV" type="video/mp4">
+      </video>
+    </div>
+  </section>
+
+  <!-- 100 REASONS -->
+  <section id="reasons" class="reasons-section fade-up">
+    <h2>100 เหตุผลที่เค้ารักบี๋</h2>
+    <ol id="reasonList"></ol>
+    <div class="nav-btns">
+      <button class="soft-btn" id="prevBtn">Previous</button>
+      <button class="soft-btn" id="nextBtn">Next</button>
+    </div>
+    <div id="pageInfo" class="page-info">Page 1 / 5</div>
+  </section>
 
   <script src="script.js"></script>
 </body>
