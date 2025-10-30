@@ -5,14 +5,49 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Happy Birthday, my chokunchicken</title>
 
-  <!-- Google Fonts -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fahkwang:wght@300;400;600&family=Gruppo&family=Unbounded:wght@400;600;800&display=swap" rel="stylesheet">
 
-  <!-- CSS -->
   <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Slideshow */
+    .slideshow {
+      position: relative;
+      width: 100%;
+      max-width: 800px;
+      margin: 120px auto 60px;
+      overflow: hidden;
+      border-radius: 10px;
+      border: 2px solid #442f2a;
+    }
+
+    .slides {
+      display: flex;
+      width: calc(100% * 7);
+      animation: slide 21s infinite;
+    }
+
+    .slides img {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+    }
+
+    @keyframes slide {
+      0% { transform: translateX(0%); }
+      14.28% { transform: translateX(0%); }
+      28.56% { transform: translateX(-100%); }
+      42.84% { transform: translateX(-200%); }
+      57.12% { transform: translateX(-300%); }
+      71.4% { transform: translateX(-400%); }
+      85.68% { transform: translateX(-500%); }
+      100% { transform: translateX(-600%); }
+    }
+  </style>
 </head>
+
 <body>
   <!-- Navbar -->
   <nav class="navbar">
@@ -42,9 +77,22 @@
   </div>
 
   <!-- Hero -->
-  <section id="home" class="section-cream hidden">
+  <section id="home" class="section-cream fade-up hidden">
     <h1 style="font-family: 'Unbounded', sans-serif;">Happy Birthday, my chokunchicken</h1>
     <p style="font-family: 'Fahkwang', sans-serif;">I love you, and I’m with you for as long as you want me to be.</p>
+
+    <!-- Slideshow -->
+    <div class="slideshow fade-up">
+      <div class="slides">
+        <img src="chokun/IMG_6203.JPG" alt="">
+        <img src="chokun/IMG_6777.jpg" alt="">
+        <img src="chokun/IMG_7206.jpg" alt="">
+        <img src="chokun/IMG_7553.jpg" alt="">
+        <img src="chokun/IMG_7795.jpg" alt="">
+        <img src="chokun/IMG_7840.jpg" alt="">
+        <img src="chokun/IMG_7852.jpg" alt="">
+      </div>
+    </div>
   </section>
 
   <!-- Our Moments -->
@@ -53,47 +101,55 @@
 
     <h3>My Photo Booth Duo Forever</h3>
     <div class="gallery">
-      <div class="photo"><img src="imgphotobooth/1.jpeg" alt=""></div>
-      <div class="photo"><img src="imgphotobooth/2.jpeg" alt=""></div>
-      <div class="photo"><img src="imgphotobooth/3.jpeg" alt=""></div>
-      <div class="photo"><img src="imgphotobooth/4.jpeg" alt=""></div>
-      <div class="photo"><img src="imgphotobooth/5.jpeg" alt=""></div>
+      <div class="photo"><img src="imgphotobooth/IMG_4341.JPG" alt=""></div>
+      <div class="photo"><img src="imgphotobooth/IMG_7064.jpg" alt=""></div>
+      <div class="photo"><img src="imgphotobooth/IMG_7250.JPG" alt=""></div>
+      <div class="photo"><img src="imgphotobooth/IMG_8244.JPG" alt=""></div>
+      <div class="photo"><img src="imgphotobooth/IMG_8245.JPG" alt=""></div>
+      <div class="photo"><img src="imgphotobooth/IMG_8281.JPG" alt=""></div>
     </div>
 
     <h3>I love when you always pick me up at Rangsit</h3>
     <div class="gallery">
-      <div class="photo"><img src="drive/1.jpeg" alt=""></div>
-      <div class="photo"><img src="drive/2.jpeg" alt=""></div>
-      <div class="photo"><img src="drive/3.jpeg" alt=""></div>
-      <div class="photo"><img src="drive/4.jpeg" alt=""></div>
-      <div class="photo"><img src="drive/5.jpeg" alt=""></div>
+      <div class="photo"><img src="drive/IMG_8540.JPG" alt=""></div>
+      <div class="photo"><img src="drive/IMG_4378.JPG" alt=""></div>
+      <div class="photo"><img src="drive/IMG_9199.jpg" alt=""></div>
+      <div class="photo"><img src="drive/64193E4C-5AA6-47F1-A984-B524358FD251.JPG" alt=""></div>
+      <div class="photo"><img src="drive/E46B3EE1-BA06-473A-AD82-D7ECB027157E.JPG" alt=""></div>
     </div>
 
     <h3>I love running with you</h3>
     <div class="gallery">
-      <div class="photo"><img src="running/1.jpeg" alt=""></div>
-      <div class="photo"><img src="running/2.jpeg" alt=""></div>
-      <div class="photo"><img src="running/3.jpeg" alt=""></div>
-      <div class="photo"><img src="running/4.jpeg" alt=""></div>
-      <div class="photo"><img src="running/5.jpeg" alt=""></div>
+      <div class="photo"><img src="running/IMG_4025.jpg" alt=""></div>
+      <div class="photo"><img src="running/IMG_4379.JPG" alt=""></div>
+      <div class="photo"><img src="running/IMG_6158.JPG" alt=""></div>
+      <div class="photo"><img src="running/IMG_6927.JPG" alt=""></div>
+      <div class="photo"><img src="running/IMG_6998.JPG" alt=""></div>
+      <div class="photo"><img src="running/IMG_9044.JPG" alt=""></div>
     </div>
 
     <h3>I love eating with you</h3>
     <div class="gallery">
-      <div class="photo"><img src="eating/1.jpeg" alt=""></div>
-      <div class="photo"><img src="eating/2.jpeg" alt=""></div>
-      <div class="photo"><img src="eating/3.jpeg" alt=""></div>
-      <div class="photo"><img src="eating/4.jpeg" alt=""></div>
-      <div class="photo"><img src="eating/5.jpeg" alt=""></div>
+      <div class="photo"><img src="eating/IMG_0703.jpg" alt=""></div>
+      <div class="photo"><img src="eating/IMG_1165.JPG" alt=""></div>
+      <div class="photo"><img src="eating/IMG_6236.JPG" alt=""></div>
+      <div class="photo"><img src="eating/IMG_7112.JPG" alt=""></div>
+      <div class="photo"><img src="eating/IMG_7810.JPG" alt=""></div>
+      <div class="photo"><img src="eating/IMG_8443.jpg" alt=""></div>
     </div>
 
     <h3>I love spending time with you</h3>
     <div class="gallery">
-      <div class="photo"><img src="spendtime/1.jpeg" alt=""></div>
-      <div class="photo"><img src="spendtime/2.jpeg" alt=""></div>
-      <div class="photo"><img src="spendtime/3.jpeg" alt=""></div>
-      <div class="photo"><img src="spendtime/4.jpeg" alt=""></div>
-      <div class="photo"><img src="spendtime/5.jpeg" alt=""></div>
+      <div class="photo"><img src="spendtime/FullSizeRender.jpg" alt=""></div>
+      <div class="photo"><img src="spendtime/IMG_4383.JPG" alt=""></div>
+      <div class="photo"><img src="spendtime/IMG_8501.jpg" alt=""></div>
+      <div class="photo"><img src="spendtime/IMG_2416.jpg" alt=""></div>
+      <div class="photo"><img src="spendtime/IMG_7850.JPG" alt=""></div>
+      <div class="photo"><img src="spendtime/IMG_6053.JPG" alt=""></div>
+      <div class="photo"><img src="spendtime/IMG_6322.jpg" alt=""></div>
+      <div class="photo"><img src="spendtime/IMG_6347.jpg" alt=""></div>
+      <div class="photo"><img src="spendtime/IMG_6597.JPG" alt=""></div>
+      <div class="photo"><img src="spendtime/IMG_6767.JPG" alt=""></div>
     </div>
   </section>
 
@@ -101,7 +157,7 @@
   <section id="video" class="section-cream fade-up">
     <h2 style="font-family: 'Unbounded', sans-serif;">Our Video Memory</h2>
     <video controls width="70%" style="border:2px solid #442f2a;">
-      <source src="cho.MOV" type="video/mp4">
+      <source src="755f3d87d045470dbb3a4da521b30aa2.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
   </section>
