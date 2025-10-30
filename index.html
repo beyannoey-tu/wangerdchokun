@@ -9,36 +9,43 @@
   <link href="https://fonts.googleapis.com/css2?family=Fahkwang:wght@300;400;600&family=Unbounded:wght@400;600;800&display=swap" rel="stylesheet">
 
   <style>
+    :root {
+      --brown: #d4b39c;
+      --cream: #fffaf2;
+      --text: #3b2d2a;
+    }
+
     body {
       margin: 0;
       font-family: 'Fahkwang', sans-serif;
-      background-color: #fffaf2;
-      overflow-x: hidden;
+      background-color: var(--cream);
+      color: var(--text);
       text-align: center;
-      color: #3b2d2a;
+      overflow-x: hidden;
     }
 
     /* Navbar */
     .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: var(--cream);
+      border-bottom: 1px solid #c6b09d;
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 15px 25px;
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background-color: #fffaf2;
-      border-bottom: 1px solid #d4c4b0;
       z-index: 10;
     }
     .navbar .logo {
       font-family: 'Unbounded', sans-serif;
       font-weight: 700;
+      font-size: 18px;
     }
     .nav-links a {
-      margin-left: 20px;
+      margin-left: 15px;
       text-decoration: none;
-      color: #3b2d2a;
+      color: var(--text);
       font-weight: 500;
     }
 
@@ -46,7 +53,7 @@
     .popup {
       position: fixed;
       inset: 0;
-      background-color: #fffaf2;
+      background-color: var(--cream);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -89,45 +96,48 @@
       font-size: 14px;
       line-height: 1.4;
     }
-    .open .flap {
-      transform: rotateX(-180deg);
-    }
-    .open .letter {
-      top: 0;
-    }
+    .open .flap { transform: rotateX(-180deg); }
+    .open .letter { top: 0; }
 
     .soft-btn {
       margin-top: 25px;
-      background: #d5b89c;
+      background: var(--brown);
       border: none;
       padding: 10px 22px;
       font-size: 15px;
       color: white;
       border-radius: 6px;
       cursor: pointer;
-      font-family: 'Fahkwang', sans-serif;
     }
-    .fade-out {
-      opacity: 0;
-      pointer-events: none;
-    }
+    .fade-out { opacity: 0; pointer-events: none; }
 
     /* Hero */
     section {
       padding: 100px 20px 60px;
     }
-    h1 {
+    .hero-box {
+      display: inline-block;
+      background-color: var(--brown);
+      color: white;
+      padding: 10px 25px;
       font-family: 'Unbounded', sans-serif;
+      font-size: 20px;
+      letter-spacing: 0.5px;
+    }
+    .hero-sub {
+      margin-top: 15px;
+      font-size: 16px;
+      color: var(--text);
     }
 
-    /* Slideshow (chokun) */
+    /* Slideshow */
     .slideshow {
       position: relative;
       width: 100%;
       overflow: hidden;
-      border-radius: 10px;
+      border: 2px solid var(--brown);
+      margin: 25px auto;
       max-width: 800px;
-      margin: 20px auto;
     }
     .slides {
       display: flex;
@@ -149,19 +159,39 @@
       font-size: 24px;
       cursor: pointer;
       padding: 5px 10px;
-      border-radius: 50%;
     }
     .prev { left: 10px; }
     .next { right: 10px; }
 
-    /* Gallery for Our Moments */
+    /* Section Styling */
+    .section {
+      margin-top: 60px;
+    }
+    .section h2 {
+      font-family: 'Unbounded', sans-serif;
+      background-color: var(--brown);
+      color: white;
+      display: inline-block;
+      padding: 5px 15px;
+      margin-bottom: 25px;
+    }
+
+    .subsection {
+      background-color: #f3e2d4;
+      border: 2px solid var(--brown);
+      padding: 15px 10px;
+      margin: 15px auto;
+      width: 95%;
+      max-width: 800px;
+      box-sizing: border-box;
+    }
+    .subsection h3 {
+      margin-bottom: 10px;
+    }
+
     .gallery-container {
       position: relative;
       overflow: hidden;
-      width: 100%;
-      max-width: 800px;
-      margin: 20px auto;
-      border-radius: 10px;
     }
     .gallery {
       display: flex;
@@ -178,34 +208,47 @@
     video {
       width: 90%;
       max-width: 500px;
-      border-radius: 10px;
-      border: 2px solid #d4c4b0;
+      border: 2px solid var(--brown);
+      border-radius: 0;
+      margin-top: 15px;
     }
 
-    /* Reasons */
+    /* 100 Reasons */
+    #reasons {
+      background-color: #f8efe7;
+      padding-top: 80px;
+    }
     ol {
       text-align: left;
       max-width: 600px;
       margin: 0 auto;
-      padding-left: 30px;
+      padding-left: 25px;
     }
-    li {
-      margin-bottom: 10px;
-      line-height: 1.5;
-    }
+    li { margin-bottom: 10px; }
 
+    /* Footer */
     footer {
-      margin-top: 80px;
+      background-color: var(--brown);
+      color: white;
+      padding: 12px 0;
       font-size: 14px;
-      color: #7a6552;
-      padding-bottom: 30px;
     }
   </style>
 </head>
 
 <body>
 
-  <!-- Popup Letter -->
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">for chokunchicken</div>
+    <div class="nav-links">
+      <a href="#moments">Our Moments</a>
+      <a href="#video">🥺</a>
+      <a href="#reasons">100 Reasons</a>
+    </div>
+  </nav>
+
+  <!-- Popup -->
   <div class="popup" id="letterPopup">
     <div class="envelope" id="envelope">
       <div class="flap"></div>
@@ -222,20 +265,20 @@
   </div>
 
   <!-- Hero -->
-  <section id="home" class="hidden">
-    <h1>Happy Birthday, my chokunchicken</h1>
-    <p>I love you, and I’m with you for as long as you want me to be.</p>
+  <section id="home" class="section">
+    <div class="hero-box">Happy Birthday, my chokunchicken</div>
+    <p class="hero-sub">Everything is better with you.<br>Everything has been better since you.</p>
 
-    <!-- Slideshow -->
+    <h3>Kevin’s core</h3>
     <div class="slideshow">
       <div class="slides" id="slides">
-        <img src="chokun/IMG_6203.JPG" alt="">
-        <img src="chokun/IMG_6777.jpg" alt="">
-        <img src="chokun/IMG_7206.jpg" alt="">
-        <img src="chokun/IMG_7553.jpg" alt="">
-        <img src="chokun/IMG_7795.jpg" alt="">
-        <img src="chokun/IMG_7840.jpg" alt="">
-        <img src="chokun/IMG_7852.jpg" alt="">
+        <img src="chokun/IMG_6203.JPG">
+        <img src="chokun/IMG_6777.jpg">
+        <img src="chokun/IMG_7206.jpg">
+        <img src="chokun/IMG_7553.jpg">
+        <img src="chokun/IMG_7795.jpg">
+        <img src="chokun/IMG_7840.jpg">
+        <img src="chokun/IMG_7852.jpg">
       </div>
       <button class="slide-btn prev" id="prevSlide">‹</button>
       <button class="slide-btn next" id="nextSlide">›</button>
@@ -243,32 +286,89 @@
   </section>
 
   <!-- Our Moments -->
-  <section id="moments">
+  <section id="moments" class="section">
     <h2>Our Moments</h2>
-    <div class="gallery-container">
-      <div class="gallery" id="gallery">
-        <img src="imgphotobooth/IMG_4341.JPG">
-        <img src="imgphotobooth/IMG_7064.jpg">
-        <img src="imgphotobooth/IMG_7250.JPG">
-        <img src="imgphotobooth/IMG_8244.JPG">
-        <img src="imgphotobooth/IMG_8245.JPG">
-        <img src="imgphotobooth/IMG_8281.JPG">
+
+    <div class="subsection">
+      <h3>My Photobooth Duo</h3>
+      <div class="gallery-container">
+        <div class="gallery" id="gallery1">
+          <img src="imgphotobooth/IMG_4341.JPG">
+          <img src="imgphotobooth/IMG_7064.jpg">
+          <img src="imgphotobooth/IMG_7250.JPG">
+          <img src="imgphotobooth/IMG_8244.JPG">
+          <img src="imgphotobooth/IMG_8245.JPG">
+          <img src="imgphotobooth/IMG_8281.JPG">
+        </div>
       </div>
-      <button class="slide-btn prev" id="prevGallery">‹</button>
-      <button class="slide-btn next" id="nextGallery">›</button>
+    </div>
+
+    <div class="subsection">
+      <h3>I love when you pick me up at Rangsit</h3>
+      <div class="gallery-container">
+        <div class="gallery" id="gallery2">
+          <img src="drive/IMG_8540.JPG">
+          <img src="drive/IMG_4378.JPG">
+          <img src="drive/IMG_9199.jpg">
+          <img src="drive/64193E4C-5AA6-47F1-A984-B524358FD251.JPG">
+          <img src="drive/E46B3EE1-BA06-473A-AD82-D7ECB027157E.JPG">
+        </div>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <h3>Running</h3>
+      <div class="gallery-container">
+        <div class="gallery" id="gallery3">
+          <img src="running/IMG_4025.jpg">
+          <img src="running/IMG_4379.JPG">
+          <img src="running/IMG_6158.JPG">
+          <img src="running/IMG_6927.JPG">
+          <img src="running/IMG_6998.JPG">
+          <img src="running/IMG_9044.JPG">
+        </div>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <h3>Eating</h3>
+      <div class="gallery-container">
+        <div class="gallery" id="gallery4">
+          <img src="eating/IMG_0703.jpg">
+          <img src="eating/IMG_1165.JPG">
+          <img src="eating/IMG_6236.JPG">
+          <img src="eating/IMG_7112.JPG">
+          <img src="eating/IMG_7810.JPG">
+          <img src="eating/IMG_8443.jpg">
+        </div>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <h3>Spend Time</h3>
+      <div class="gallery-container">
+        <div class="gallery" id="gallery5">
+          <img src="spendtime/FullSizeRender.jpg">
+          <img src="spendtime/IMG_4383.JPG">
+          <img src="spendtime/IMG_8501.jpg">
+          <img src="spendtime/IMG_2416.jpg">
+          <img src="spendtime/IMG_7850.JPG">
+          <img src="spendtime/IMG_6053.JPG">
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- Video -->
-  <section id="video">
-    <h2>Our Video Memory</h2>
+  <section id="video" class="section">
+    <h2>🥺</h2>
     <video controls>
       <source src="video/755f3d87d045470dbb3a4da521b30aa2.mp4" type="video/mp4">
     </video>
   </section>
 
-  <!-- Reasons -->
-  <section id="reasons">
+  <!-- 100 Reasons -->
+  <section id="reasons" class="section">
     <h2>100 Reasons Why I Love You</h2>
     <ol>
        <li>บี๋ทำให้เค้ายิ้มออกได้ทุกวันเลย</li>
@@ -377,48 +477,31 @@
   <footer>made with love for chokunchicken ♡</footer>
 
   <script>
+    // Letter open animation
     const openLetter = document.getElementById('openLetter');
     const envelope = document.getElementById('envelope');
     const popup = document.getElementById('letterPopup');
     const paperSound = document.getElementById('paperSound');
-    const home = document.getElementById('home');
 
     openLetter.addEventListener('click', () => {
       envelope.classList.add('open');
       paperSound.currentTime = 0;
       paperSound.play();
-      setTimeout(() => {
-        popup.classList.add('fade-out');
-        home.classList.remove('hidden');
-      }, 1800);
+      setTimeout(() => popup.classList.add('fade-out'), 1800);
     });
 
-    // Slideshow (chokun)
-    let currentSlide = 0;
+    // Chokun slideshow
+    let slideIndex = 0;
     const slides = document.getElementById('slides');
     const totalSlides = slides.children.length;
     document.getElementById('nextSlide').onclick = () => {
-      currentSlide = (currentSlide + 1) % totalSlides;
-      slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+      slideIndex = (slideIndex + 1) % totalSlides;
+      slides.style.transform = `translateX(-${slideIndex * 100}%)`;
     };
     document.getElementById('prevSlide').onclick = () => {
-      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-      slides.style.transform = `translateX(-${currentSlide * 100}%)`;
-    };
-
-    // Gallery (Our Moments)
-    let galleryIndex = 0;
-    const gallery = document.getElementById('gallery');
-    const totalGallery = gallery.children.length;
-    document.getElementById('nextGallery').onclick = () => {
-      galleryIndex = (galleryIndex + 1) % totalGallery;
-      gallery.style.transform = `translateX(-${galleryIndex * 100}%)`;
-    };
-    document.getElementById('prevGallery').onclick = () => {
-      galleryIndex = (galleryIndex - 1 + totalGallery) % totalGallery;
-      gallery.style.transform = `translateX(-${galleryIndex * 100}%)`;
+      slideIndex = (slideIndex - 1 + totalSlides) % totalSlides;
+      slides.style.transform = `translateX(-${slideIndex * 100}%)`;
     };
   </script>
-
 </body>
 </html>
