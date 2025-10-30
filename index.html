@@ -42,10 +42,10 @@
       text-decoration: underline;
     }
 
-    /* Hero Section */
+    /* Hero */
     .section-cream {
       text-align: center;
-      padding: 100px 20px 60px;
+      padding: 80px 10px 40px;
     }
 
     h1 {
@@ -56,35 +56,22 @@
     .slideshow {
       position: relative;
       width: 100%;
-      max-width: 800px;
-      margin: 50px auto;
       overflow: hidden;
-      border-radius: 10px;
-      border: 2px solid #442f2a;
+      margin: 30px 0;
+      border-top: 2px solid #442f2a;
+      border-bottom: 2px solid #442f2a;
     }
 
     .slides {
       display: flex;
-      width: calc(100% * 7);
-      animation: slide 21s linear infinite;
+      transition: transform 1s ease-in-out;
+      width: 700%;
     }
 
     .slides img {
       width: 100%;
-      height: 500px;
+      height: 70vh;
       object-fit: cover;
-    }
-
-    @keyframes slide {
-      0% { transform: translateX(0%); }
-      14.28% { transform: translateX(0%); }
-      28.56% { transform: translateX(-100%); }
-      42.84% { transform: translateX(-200%); }
-      57.12% { transform: translateX(-300%); }
-      71.4% { transform: translateX(-400%); }
-      85.68% { transform: translateX(-500%); }
-      99.99% { transform: translateX(-600%); }
-      100% { transform: translateX(0%); }
     }
 
     /* Gallery */
@@ -129,7 +116,7 @@
       line-height: 1.8;
       opacity: 0;
       transform: translateY(30px);
-      transition: all 0.6s ease-out;
+      transition: all 0.8s ease-out;
     }
 
     .fade-in {
@@ -172,7 +159,7 @@
 
     <!-- Slideshow -->
     <div class="slideshow">
-      <div class="slides">
+      <div class="slides" id="chokunSlides">
         <img src="chokun/IMG_6203.JPG" alt="">
         <img src="chokun/IMG_6777.jpg" alt="">
         <img src="chokun/IMG_7206.jpg" alt="">
@@ -246,7 +233,7 @@
   <section id="video" class="section-cream" style="text-align:center;">
     <h2 style="font-family:'Unbounded',sans-serif;">Our Video Memory</h2>
     <video controls width="70%">
-      <source src="755f3d87d045470dbb3a4da521b30aa2.mp4" type="video/mp4">
+      <source src="video/755f3d87d045470dbb3a4da521b30aa2.mp4" type="video/mp4">
     </video>
   </section>
 
@@ -254,7 +241,7 @@
   <section id="reasons" class="reasons-section">
     <h1>100 Reasons Why I Love You</h1>
     <ol id="reasonList">
-       <li>บี๋ทำให้เค้ายิ้มออกได้ทุกวันเลย</li>
+      <li>บี๋ทำให้เค้ายิ้มออกได้ทุกวันเลย</li>
     <li>มุกตลกของบี๋คือที่สุด ทำให้เค้าขำตลอด</li>
     <li>บี๋เป็นคนใจดีและน่ารักกับทุกคน</li>
     <li>บี๋ซื่อสัตย์และเชื่อถือได้เสมอ</li>
@@ -362,18 +349,26 @@
   </footer>
 
   <script>
-    // เอฟเฟกต์ fade-in ตอนสกรอล
-    const reasonList = document.getElementById('reasonList');
+    // ===== สไลด์ภาพ chokun =====
+    const slides = document.getElementById("chokunSlides");
+    const totalSlides = slides.children.length;
+    let index = 0;
+
+    setInterval(() => {
+      index = (index + 1) % totalSlides;
+      slides.style.transform = `translateX(-${index * 100}%)`;
+    }, 3000); // 3 วิ ต่อรูป
+
+    // ===== เอฟเฟกต์ fade-in ตอนสกรอล =====
+    const reasons = document.querySelector("#reasonList");
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('fade-in');
-          observer.unobserve(entry.target);
+          reasons.classList.add("fade-in");
         }
       });
-    }, { threshold: 0.1 });
-
-    observer.observe(reasonList);
+    });
+    observer.observe(reasons);
   </script>
 </body>
 </html>
