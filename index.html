@@ -6,249 +6,272 @@
   <title>Happy Birthday, my chokunchicken</title>
 
   <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fahkwang:wght@300;400;600&family=Gruppo&family=Unbounded:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fahkwang:wght@300;400;600&family=Unbounded:wght@400;600;800&display=swap" rel="stylesheet">
 
   <style>
     body {
       margin: 0;
-      background-color: #f5cbd7;
-      color: #442f2a;
-      font-family: "Fahkwang", sans-serif;
+      font-family: 'Fahkwang', sans-serif;
+      background-color: #fffaf2;
+      overflow-x: hidden;
+      text-align: center;
+      color: #3b2d2a;
     }
 
+    /* Navbar */
     .navbar {
-      background-color: #f2bfcf;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 15px 40px;
-      font-family: "Unbounded", sans-serif;
-      position: sticky;
+      padding: 15px 25px;
+      position: fixed;
       top: 0;
+      width: 100%;
+      background-color: #fffaf2;
+      border-bottom: 1px solid #d4c4b0;
+      z-index: 10;
+    }
+    .navbar .logo {
+      font-family: 'Unbounded', sans-serif;
+      font-weight: 700;
+    }
+    .nav-links a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: #3b2d2a;
+      font-weight: 500;
+    }
+
+    /* Popup Envelope */
+    .popup {
+      position: fixed;
+      inset: 0;
+      background-color: #fffaf2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
       z-index: 100;
+      transition: opacity 0.8s;
     }
-    .nav-links a { color: #442f2a; text-decoration: none; margin: 0 12px; font-weight: 500; }
-    .nav-links a:hover { text-decoration: underline; }
-
-    .section {
-      text-align: center;
-      padding: 80px 10px 40px;
+    .envelope {
+      position: relative;
+      width: 260px;
+      height: 180px;
+      background-color: #fdf2e9;
+      border: 2px solid #c3a68c;
+      border-radius: 4px;
+      overflow: hidden;
+      perspective: 800px;
+    }
+    .flap {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 50%;
+      background-color: #f2d5b8;
+      transform-origin: top;
+      transition: transform 1s ease;
+      z-index: 2;
+    }
+    .letter {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #fff;
+      transition: top 1s ease;
+      z-index: 1;
+      padding: 15px;
+      box-sizing: border-box;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+    .open .flap {
+      transform: rotateX(-180deg);
+    }
+    .open .letter {
+      top: 0;
     }
 
-    h1, h2 { font-family: "Unbounded", sans-serif; }
+    .soft-btn {
+      margin-top: 25px;
+      background: #d5b89c;
+      border: none;
+      padding: 10px 22px;
+      font-size: 15px;
+      color: white;
+      border-radius: 6px;
+      cursor: pointer;
+      font-family: 'Fahkwang', sans-serif;
+    }
+    .fade-out {
+      opacity: 0;
+      pointer-events: none;
+    }
 
-    /* Universal slideshow style */
+    /* Hero */
+    section {
+      padding: 100px 20px 60px;
+    }
+    h1 {
+      font-family: 'Unbounded', sans-serif;
+    }
+
+    /* Slideshow (chokun) */
     .slideshow {
       position: relative;
       width: 100%;
-      max-width: 900px;
-      margin: 40px auto;
       overflow: hidden;
       border-radius: 10px;
-      border: 2px solid #442f2a;
+      max-width: 800px;
+      margin: 20px auto;
     }
     .slides {
       display: flex;
-      transition: transform 0.6s ease-in-out;
+      transition: transform 0.6s ease;
     }
     .slides img {
       width: 100%;
-      height: 500px;
+      aspect-ratio: 3/4;
       object-fit: cover;
+      flex-shrink: 0;
     }
-
     .slide-btn {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      background-color: rgba(255,255,255,0.7);
+      background: rgba(0,0,0,0.3);
+      color: white;
       border: none;
-      font-size: 40px;
-      padding: 10px 20px;
+      font-size: 24px;
       cursor: pointer;
-      color: #442f2a;
-      font-weight: bold;
+      padding: 5px 10px;
+      border-radius: 50%;
+    }
+    .prev { left: 10px; }
+    .next { right: 10px; }
+
+    /* Gallery for Our Moments */
+    .gallery-container {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      max-width: 800px;
+      margin: 20px auto;
       border-radius: 10px;
     }
-    #prevBtn, .prev { left: 10px; }
-    #nextBtn, .next { right: 10px; }
-
-    .indicators {
+    .gallery {
       display: flex;
-      justify-content: center;
-      gap: 8px;
-      margin-top: 10px;
+      transition: transform 0.6s ease;
     }
-    .dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background-color: #caa5af;
-      transition: background-color 0.4s;
+    .gallery img {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      flex-shrink: 0;
     }
-    .dot.active { background-color: #442f2a; }
 
-    /* 100 reasons */
-    .reasons {
-      background-color: #f7d9e0;
-      padding: 70px 20px;
-      text-align: center;
+    /* Video */
+    video {
+      width: 90%;
+      max-width: 500px;
+      border-radius: 10px;
+      border: 2px solid #d4c4b0;
     }
+
+    /* Reasons */
     ol {
-      max-width: 700px;
-      margin: auto;
       text-align: left;
-      line-height: 1.8;
-      font-size: 18px;
+      max-width: 600px;
+      margin: 0 auto;
+      padding-left: 30px;
+    }
+    li {
+      margin-bottom: 10px;
+      line-height: 1.5;
     }
 
     footer {
-      background-color: #442f2a;
-      color: white;
-      text-align: center;
-      padding: 20px;
-      font-family: "Gruppo", sans-serif;
+      margin-top: 80px;
+      font-size: 14px;
+      color: #7a6552;
+      padding-bottom: 30px;
     }
   </style>
 </head>
 
 <body>
-  <!-- Navbar -->
-  <nav class="navbar">
-    <div class="logo">for chokunchicken</div>
-    <div class="nav-links">
-      <a href="#home">Home</a>
-      <a href="#moments">Our Moments</a>
-      <a href="#video">Video</a>
-      <a href="#reasons">100 Reasons</a>
-    </div>
-  </nav>
 
-  <!-- Hero (Chokun slideshow) -->
-  <section id="home" class="section">
+  <!-- Popup Letter -->
+  <div class="popup" id="letterPopup">
+    <div class="envelope" id="envelope">
+      <div class="flap"></div>
+      <div class="letter">
+        hey my chokunchicken,<br><br>
+        happy birthday na bby — you’re my home.<br>
+        you know I live for Friday every week.<br>
+        thank you for everything kub.<br><br>
+        rak bby tee sud, yark stay kab bby forever loey. 💌
+      </div>
+    </div>
+    <button class="soft-btn" id="openLetter">Open Letter</button>
+    <audio id="paperSound" src="open.mp3"></audio>
+  </div>
+
+  <!-- Hero -->
+  <section id="home" class="hidden">
     <h1>Happy Birthday, my chokunchicken</h1>
     <p>I love you, and I’m with you for as long as you want me to be.</p>
 
-    <div class="slideshow" data-id="chokun">
-      <div class="slides">
-        <img src="chokun/IMG_6203.JPG" />
-        <img src="chokun/IMG_6777.jpg" />
-        <img src="chokun/IMG_7206.jpg" />
-        <img src="chokun/IMG_7553.jpg" />
-        <img src="chokun/IMG_7795.jpg" />
-        <img src="chokun/IMG_7840.jpg" />
-        <img src="chokun/IMG_7852.jpg" />
+    <!-- Slideshow -->
+    <div class="slideshow">
+      <div class="slides" id="slides">
+        <img src="chokun/IMG_6203.JPG" alt="">
+        <img src="chokun/IMG_6777.jpg" alt="">
+        <img src="chokun/IMG_7206.jpg" alt="">
+        <img src="chokun/IMG_7553.jpg" alt="">
+        <img src="chokun/IMG_7795.jpg" alt="">
+        <img src="chokun/IMG_7840.jpg" alt="">
+        <img src="chokun/IMG_7852.jpg" alt="">
       </div>
-      <button class="slide-btn prev">&#10094;</button>
-      <button class="slide-btn next">&#10095;</button>
-      <div class="indicators"></div>
+      <button class="slide-btn prev" id="prevSlide">‹</button>
+      <button class="slide-btn next" id="nextSlide">›</button>
     </div>
   </section>
 
   <!-- Our Moments -->
-  <section id="moments" class="section" style="background-color:#f5e2e8;">
+  <section id="moments">
     <h2>Our Moments</h2>
-
-    <!-- Each category slideshow -->
-    <div class="moment">
-      <h3>Photobooth</h3>
-      <div class="slideshow" data-id="photo">
-        <div class="slides">
-          <img src="imgphotobooth/IMG_4341.JPG">
-          <img src="imgphotobooth/IMG_7064.jpg">
-          <img src="imgphotobooth/IMG_7250.JPG">
-          <img src="imgphotobooth/IMG_8244.JPG">
-          <img src="imgphotobooth/IMG_8245.JPG">
-          <img src="imgphotobooth/IMG_8281.JPG">
-        </div>
-        <button class="slide-btn prev">&#10094;</button>
-        <button class="slide-btn next">&#10095;</button>
-        <div class="indicators"></div>
+    <div class="gallery-container">
+      <div class="gallery" id="gallery">
+        <img src="imgphotobooth/IMG_4341.JPG">
+        <img src="imgphotobooth/IMG_7064.jpg">
+        <img src="imgphotobooth/IMG_7250.JPG">
+        <img src="imgphotobooth/IMG_8244.JPG">
+        <img src="imgphotobooth/IMG_8245.JPG">
+        <img src="imgphotobooth/IMG_8281.JPG">
       </div>
-    </div>
-
-    <div class="moment">
-      <h3>Drive Together</h3>
-      <div class="slideshow" data-id="drive">
-        <div class="slides">
-          <img src="drive/IMG_8540.JPG">
-          <img src="drive/IMG_4378.JPG">
-          <img src="drive/IMG_9199.jpg">
-          <img src="drive/64193E4C-5AA6-47F1-A984-B524358FD251.JPG">
-          <img src="drive/E46B3EE1-BA06-473A-AD82-D7ECB027157E.JPG">
-        </div>
-        <button class="slide-btn prev">&#10094;</button>
-        <button class="slide-btn next">&#10095;</button>
-        <div class="indicators"></div>
-      </div>
-    </div>
-
-    <div class="moment">
-      <h3>Running Together</h3>
-      <div class="slideshow" data-id="run">
-        <div class="slides">
-          <img src="running/IMG_4025.jpg">
-          <img src="running/IMG_4379.JPG">
-          <img src="running/IMG_6158.JPG">
-          <img src="running/IMG_6927.JPG">
-          <img src="running/IMG_6998.JPG">
-          <img src="running/IMG_9044.JPG">
-        </div>
-        <button class="slide-btn prev">&#10094;</button>
-        <button class="slide-btn next">&#10095;</button>
-        <div class="indicators"></div>
-      </div>
-    </div>
-
-    <div class="moment">
-      <h3>Eating Together</h3>
-      <div class="slideshow" data-id="eat">
-        <div class="slides">
-          <img src="eating/IMG_0703.jpg">
-          <img src="eating/IMG_1165.JPG">
-          <img src="eating/IMG_6236.JPG">
-          <img src="eating/IMG_7112.JPG">
-          <img src="eating/IMG_7810.JPG">
-          <img src="eating/IMG_8443.jpg">
-        </div>
-        <button class="slide-btn prev">&#10094;</button>
-        <button class="slide-btn next">&#10095;</button>
-        <div class="indicators"></div>
-      </div>
-    </div>
-
-    <div class="moment">
-      <h3>Spend Time Together</h3>
-      <div class="slideshow" data-id="spend">
-        <div class="slides">
-          <img src="spendtime/FullSizeRender.jpg">
-          <img src="spendtime/IMG_4383.JPG">
-          <img src="spendtime/IMG_8501.jpg">
-          <img src="spendtime/IMG_7850.JPG">
-          <img src="spendtime/IMG_6053.JPG">
-        </div>
-        <button class="slide-btn prev">&#10094;</button>
-        <button class="slide-btn next">&#10095;</button>
-        <div class="indicators"></div>
-      </div>
+      <button class="slide-btn prev" id="prevGallery">‹</button>
+      <button class="slide-btn next" id="nextGallery">›</button>
     </div>
   </section>
 
   <!-- Video -->
-  <section id="video" class="section">
+  <section id="video">
     <h2>Our Video Memory</h2>
-    <video controls width="70%">
+    <video controls>
       <source src="video/755f3d87d045470dbb3a4da521b30aa2.mp4" type="video/mp4">
     </video>
   </section>
 
-  <!-- 100 reasons -->
-  <section id="reasons" class="reasons">
-    <h1>100 Reasons Why I Love You</h1>
+  <!-- Reasons -->
+  <section id="reasons">
+    <h2>100 Reasons Why I Love You</h2>
     <ol>
-      <li>บี๋ทำให้เค้ายิ้มออกได้ทุกวันเลย</li>
+       <li>บี๋ทำให้เค้ายิ้มออกได้ทุกวันเลย</li>
     <li>มุกตลกของบี๋คือที่สุด ทำให้เค้าขำตลอด</li>
     <li>บี๋เป็นคนใจดีและน่ารักกับทุกคน</li>
     <li>บี๋ซื่อสัตย์และเชื่อถือได้เสมอ</li>
@@ -351,41 +374,51 @@
     </ol>
   </section>
 
-  <footer>
-    made with love for chokunchicken ♡
-  </footer>
+  <footer>made with love for chokunchicken ♡</footer>
 
   <script>
-    // ✅ ใช้โค้ดเดียวจัดการทุก slideshow
-    document.querySelectorAll('.slideshow').forEach((slideshow) => {
-      const slides = slideshow.querySelector('.slides');
-      const total = slides.children.length;
-      let index = 0;
+    const openLetter = document.getElementById('openLetter');
+    const envelope = document.getElementById('envelope');
+    const popup = document.getElementById('letterPopup');
+    const paperSound = document.getElementById('paperSound');
+    const home = document.getElementById('home');
 
-      // วงกลม indicators
-      const indicator = slideshow.querySelector('.indicators');
-      for (let i = 0; i < total; i++) {
-        const dot = document.createElement('div');
-        dot.classList.add('dot');
-        if (i === 0) dot.classList.add('active');
-        indicator.appendChild(dot);
-      }
-      const dots = indicator.querySelectorAll('.dot');
-
-      const update = () => {
-        slides.style.transform = `translateX(-${index * 100}%)`;
-        dots.forEach((d, i) => d.classList.toggle('active', i === index));
-      };
-
-      slideshow.querySelector('.next').addEventListener('click', () => {
-        index = (index + 1) % total;
-        update();
-      });
-      slideshow.querySelector('.prev').addEventListener('click', () => {
-        index = (index - 1 + total) % total;
-        update();
-      });
+    openLetter.addEventListener('click', () => {
+      envelope.classList.add('open');
+      paperSound.currentTime = 0;
+      paperSound.play();
+      setTimeout(() => {
+        popup.classList.add('fade-out');
+        home.classList.remove('hidden');
+      }, 1800);
     });
+
+    // Slideshow (chokun)
+    let currentSlide = 0;
+    const slides = document.getElementById('slides');
+    const totalSlides = slides.children.length;
+    document.getElementById('nextSlide').onclick = () => {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+    };
+    document.getElementById('prevSlide').onclick = () => {
+      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+      slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+    };
+
+    // Gallery (Our Moments)
+    let galleryIndex = 0;
+    const gallery = document.getElementById('gallery');
+    const totalGallery = gallery.children.length;
+    document.getElementById('nextGallery').onclick = () => {
+      galleryIndex = (galleryIndex + 1) % totalGallery;
+      gallery.style.transform = `translateX(-${galleryIndex * 100}%)`;
+    };
+    document.getElementById('prevGallery').onclick = () => {
+      galleryIndex = (galleryIndex - 1 + totalGallery) % totalGallery;
+      gallery.style.transform = `translateX(-${galleryIndex * 100}%)`;
+    };
   </script>
+
 </body>
 </html>
