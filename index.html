@@ -104,6 +104,12 @@
     }
 
     /* Gallery */
+    .section-blush {
+      background-color: #f7d9e0;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
     .gallery {
       display: flex;
       flex-wrap: wrap;
@@ -130,7 +136,7 @@
 
     /* 100 Reasons */
     .reasons-section {
-      background-color: #f7d9e0;
+      background-color: #f5cbd7;
       padding: 80px 30px;
       text-align: center;
     }
@@ -201,6 +207,64 @@
     <div class="indicators" id="indicators"></div>
   </section>
 
+  <!-- Our Moments -->
+  <section id="moments" class="section-blush">
+    <h2 style="font-family:'Unbounded',sans-serif;">Our Moments</h2>
+
+    <h3>My Photo Booth Duo Forever</h3>
+    <div class="gallery">
+      <img src="imgphotobooth/IMG_4341.JPG">
+      <img src="imgphotobooth/IMG_7064.jpg">
+      <img src="imgphotobooth/IMG_7250.JPG">
+      <img src="imgphotobooth/IMG_8244.JPG">
+      <img src="imgphotobooth/IMG_8245.JPG">
+      <img src="imgphotobooth/IMG_8281.JPG">
+    </div>
+
+    <h3>I love when you always pick me up at Rangsit</h3>
+    <div class="gallery">
+      <img src="drive/IMG_8540.JPG">
+      <img src="drive/IMG_4378.JPG">
+      <img src="drive/IMG_9199.jpg">
+      <img src="drive/64193E4C-5AA6-47F1-A984-B524358FD251.JPG">
+      <img src="drive/E46B3EE1-BA06-473A-AD82-D7ECB027157E.JPG">
+    </div>
+
+    <h3>I love running with you</h3>
+    <div class="gallery">
+      <img src="running/IMG_4025.jpg">
+      <img src="running/IMG_4379.JPG">
+      <img src="running/IMG_6158.JPG">
+      <img src="running/IMG_6927.JPG">
+      <img src="running/IMG_6998.JPG">
+      <img src="running/IMG_9044.JPG">
+    </div>
+
+    <h3>I love eating with you</h3>
+    <div class="gallery">
+      <img src="eating/IMG_0703.jpg">
+      <img src="eating/IMG_1165.JPG">
+      <img src="eating/IMG_6236.JPG">
+      <img src="eating/IMG_7112.JPG">
+      <img src="eating/IMG_7810.JPG">
+      <img src="eating/IMG_8443.jpg">
+    </div>
+
+    <h3>I love spending time with you</h3>
+    <div class="gallery">
+      <img src="spendtime/FullSizeRender.jpg">
+      <img src="spendtime/IMG_4383.JPG">
+      <img src="spendtime/IMG_8501.jpg">
+      <img src="spendtime/IMG_2416.jpg">
+      <img src="spendtime/IMG_7850.JPG">
+      <img src="spendtime/IMG_6053.JPG">
+      <img src="spendtime/IMG_6322.jpg">
+      <img src="spendtime/IMG_6347.jpg">
+      <img src="spendtime/IMG_6597.JPG">
+      <img src="spendtime/IMG_6767.JPG">
+    </div>
+  </section>
+
   <!-- Video -->
   <section id="video" class="section-cream" style="text-align:center;">
     <h2 style="font-family:'Unbounded',sans-serif;">Our Video Memory</h2>
@@ -213,7 +277,7 @@
   <section id="reasons" class="reasons-section">
     <h1>100 Reasons Why I Love You</h1>
     <ol id="reasonList">
-    <li>บี๋ทำให้เค้ายิ้มออกได้ทุกวันเลย</li>
+       <li>บี๋ทำให้เค้ายิ้มออกได้ทุกวันเลย</li>
     <li>มุกตลกของบี๋คือที่สุด ทำให้เค้าขำตลอด</li>
     <li>บี๋เป็นคนใจดีและน่ารักกับทุกคน</li>
     <li>บี๋ซื่อสัตย์และเชื่อถือได้เสมอ</li>
@@ -339,9 +403,7 @@
 
     function updateSlide() {
       slides.style.transform = `translateX(-${index * 100}%)`;
-      dots.forEach((dot, i) => {
-        dot.classList.toggle("active", i === index);
-      });
+      dots.forEach((dot, i) => dot.classList.toggle("active", i === index));
     }
 
     document.getElementById("nextBtn").addEventListener("click", () => {
@@ -358,9 +420,7 @@
     const reasonList = document.getElementById('reasonList');
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('fade-in');
-        }
+        if (entry.isIntersecting) entry.target.classList.add('fade-in');
       });
     }, { threshold: 0.2 });
     observer.observe(reasonList);
