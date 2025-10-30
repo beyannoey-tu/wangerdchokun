@@ -5,23 +5,46 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Happy Birthday, my chokunchicken</title>
 
-  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Fahkwang:wght@300;400;600&family=Unbounded:wght@400;600;800&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --brown: #d4b39c;
-      --cream: #fffaf2;
-      --text: #3b2d2a;
+      --pink: #ECCACB;
+      --white: #FCFAFA;
+      --dark: #3B3B3B;
+      --gray: #ECECEC;
     }
 
     body {
       margin: 0;
       font-family: 'Fahkwang', sans-serif;
-      background-color: var(--cream);
-      color: var(--text);
+      background-color: var(--white);
+      color: var(--dark);
       text-align: center;
       overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    /* Fade Animation */
+    .fade-section {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+    .fade-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Fade per image */
+    .fade-img {
+      opacity: 0;
+      transform: scale(0.97);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .fade-img.show {
+      opacity: 1;
+      transform: scale(1);
     }
 
     /* Navbar */
@@ -29,8 +52,8 @@
       position: fixed;
       top: 0;
       width: 100%;
-      background-color: var(--cream);
-      border-bottom: 1px solid #c6b09d;
+      background-color: var(--dark);
+      color: var(--pink);
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -45,89 +68,29 @@
     .nav-links a {
       margin-left: 15px;
       text-decoration: none;
-      color: var(--text);
+      color: var(--pink);
       font-weight: 500;
     }
 
-    /* Popup Envelope */
-    .popup {
-      position: fixed;
-      inset: 0;
-      background-color: var(--cream);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      z-index: 100;
-      transition: opacity 0.8s;
-    }
-    .envelope {
-      position: relative;
-      width: 260px;
-      height: 180px;
-      background-color: #fdf2e9;
-      border: 2px solid #c3a68c;
-      border-radius: 4px;
-      overflow: hidden;
-      perspective: 800px;
-    }
-    .flap {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 50%;
-      background-color: #f2d5b8;
-      transform-origin: top;
-      transition: transform 1s ease;
-      z-index: 2;
-    }
-    .letter {
-      position: absolute;
-      top: 100%;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: #fff;
-      transition: top 1s ease;
-      z-index: 1;
-      padding: 15px;
-      box-sizing: border-box;
-      font-size: 14px;
-      line-height: 1.4;
-    }
-    .open .flap { transform: rotateX(-180deg); }
-    .open .letter { top: 0; }
-
-    .soft-btn {
-      margin-top: 25px;
-      background: var(--brown);
-      border: none;
-      padding: 10px 22px;
-      font-size: 15px;
-      color: white;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-    .fade-out { opacity: 0; pointer-events: none; }
-
-    /* Hero */
     section {
       padding: 100px 20px 60px;
     }
+
+    /* Hero */
     .hero-box {
-      display: inline-block;
-      background-color: var(--brown);
-      color: white;
-      padding: 10px 25px;
+      background-color: var(--pink);
+      color: var(--dark);
+      padding: 12px 25px;
       font-family: 'Unbounded', sans-serif;
       font-size: 20px;
-      letter-spacing: 0.5px;
+      display: inline-block;
+      width: calc(100% - 40px);
+      box-sizing: border-box;
     }
     .hero-sub {
       margin-top: 15px;
       font-size: 16px;
-      color: var(--text);
+      color: var(--dark);
     }
 
     /* Slideshow */
@@ -135,7 +98,6 @@
       position: relative;
       width: 100%;
       overflow: hidden;
-      border: 2px solid var(--brown);
       margin: 25px auto;
       max-width: 800px;
     }
@@ -153,69 +115,53 @@
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      background: rgba(0,0,0,0.3);
-      color: white;
+      background: rgba(0,0,0,0.4);
+      color: var(--white);
       border: none;
       font-size: 24px;
       cursor: pointer;
-      padding: 5px 10px;
+      padding: 6px 12px;
     }
     .prev { left: 10px; }
     .next { right: 10px; }
 
-    /* Section Styling */
-    .section {
-      margin-top: 60px;
-    }
+    /* Section Titles */
     .section h2 {
       font-family: 'Unbounded', sans-serif;
-      background-color: var(--brown);
-      color: white;
-      display: inline-block;
-      padding: 5px 15px;
-      margin-bottom: 25px;
+      background-color: var(--pink);
+      color: var(--dark);
+      padding: 10px 0;
+      margin: 0;
+      width: 100%;
     }
 
-    .subsection {
-      background-color: #f3e2d4;
-      border: 2px solid var(--brown);
-      padding: 15px 10px;
-      margin: 15px auto;
-      width: 95%;
-      max-width: 800px;
-      box-sizing: border-box;
-    }
-    .subsection h3 {
-      margin-bottom: 10px;
-    }
-
-    .gallery-container {
-      position: relative;
-      overflow: hidden;
-    }
+    /* Our Moments */
     .gallery {
-      display: flex;
-      transition: transform 0.6s ease;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 8px;
+      margin: 15px 10px;
     }
     .gallery img {
       width: 100%;
       aspect-ratio: 3/4;
       object-fit: cover;
-      flex-shrink: 0;
+      border: 2px solid var(--gray);
+      border-radius: 0;
     }
 
-    /* Video */
+    /* Video Section */
     video {
       width: 90%;
       max-width: 500px;
-      border: 2px solid var(--brown);
+      border: 2px solid var(--gray);
       border-radius: 0;
-      margin-top: 15px;
+      margin-top: 20px;
     }
 
     /* 100 Reasons */
     #reasons {
-      background-color: #f8efe7;
+      background-color: var(--gray);
       padding-top: 80px;
     }
     ol {
@@ -228,10 +174,13 @@
 
     /* Footer */
     footer {
-      background-color: var(--brown);
-      color: white;
-      padding: 12px 0;
+      background-color: var(--dark);
+      color: var(--white);
+      border-top: 3px solid var(--pink);
+      padding: 15px 0;
       font-size: 14px;
+      text-align: center;
+      letter-spacing: 0.3px;
     }
   </style>
 </head>
@@ -248,24 +197,8 @@
     </div>
   </nav>
 
-  <!-- Popup -->
-  <div class="popup" id="letterPopup">
-    <div class="envelope" id="envelope">
-      <div class="flap"></div>
-      <div class="letter">
-        hey my chokunchicken,<br><br>
-        happy birthday na bby — you’re my home.<br>
-        you know I live for Friday every week.<br>
-        thank you for everything kub.<br><br>
-        rak bby tee sud, yark stay kab bby forever loey. 💌
-      </div>
-    </div>
-    <button class="soft-btn" id="openLetter">Open Letter</button>
-    <audio id="paperSound" src="open.mp3"></audio>
-  </div>
-
   <!-- Hero -->
-  <section id="home" class="section">
+  <section id="home" class="fade-section">
     <div class="hero-box">Happy Birthday, my chokunchicken</div>
     <p class="hero-sub">Everything is better with you.<br>Everything has been better since you.</p>
 
@@ -286,81 +219,41 @@
   </section>
 
   <!-- Our Moments -->
-  <section id="moments" class="section">
+  <section id="moments" class="section fade-section">
     <h2>Our Moments</h2>
 
-    <div class="subsection">
-      <h3>My Photobooth Duo</h3>
-      <div class="gallery-container">
-        <div class="gallery" id="gallery1">
-          <img src="imgphotobooth/IMG_4341.JPG">
-          <img src="imgphotobooth/IMG_7064.jpg">
-          <img src="imgphotobooth/IMG_7250.JPG">
-          <img src="imgphotobooth/IMG_8244.JPG">
-          <img src="imgphotobooth/IMG_8245.JPG">
-          <img src="imgphotobooth/IMG_8281.JPG">
-        </div>
-      </div>
+    <h3>My Photobooth Duo</h3>
+    <div class="gallery">
+      <img class="fade-img" src="imgphotobooth/IMG_4341.JPG">
+      <img class="fade-img" src="imgphotobooth/IMG_7064.jpg">
+      <img class="fade-img" src="imgphotobooth/IMG_7250.JPG">
+      <img class="fade-img" src="imgphotobooth/IMG_8244.JPG">
+      <img class="fade-img" src="imgphotobooth/IMG_8245.JPG">
+      <img class="fade-img" src="imgphotobooth/IMG_8281.JPG">
     </div>
 
-    <div class="subsection">
-      <h3>I love when you pick me up at Rangsit</h3>
-      <div class="gallery-container">
-        <div class="gallery" id="gallery2">
-          <img src="drive/IMG_8540.JPG">
-          <img src="drive/IMG_4378.JPG">
-          <img src="drive/IMG_9199.jpg">
-          <img src="drive/64193E4C-5AA6-47F1-A984-B524358FD251.JPG">
-          <img src="drive/E46B3EE1-BA06-473A-AD82-D7ECB027157E.JPG">
-        </div>
-      </div>
+    <h3>I love when you pick me up at Rangsit</h3>
+    <div class="gallery">
+      <img class="fade-img" src="drive/IMG_8540.JPG">
+      <img class="fade-img" src="drive/IMG_4378.JPG">
+      <img class="fade-img" src="drive/IMG_9199.jpg">
+      <img class="fade-img" src="drive/64193E4C-5AA6-47F1-A984-B524358FD251.JPG">
+      <img class="fade-img" src="drive/E46B3EE1-BA06-473A-AD82-D7ECB027157E.JPG">
     </div>
 
-    <div class="subsection">
-      <h3>Running</h3>
-      <div class="gallery-container">
-        <div class="gallery" id="gallery3">
-          <img src="running/IMG_4025.jpg">
-          <img src="running/IMG_4379.JPG">
-          <img src="running/IMG_6158.JPG">
-          <img src="running/IMG_6927.JPG">
-          <img src="running/IMG_6998.JPG">
-          <img src="running/IMG_9044.JPG">
-        </div>
-      </div>
-    </div>
-
-    <div class="subsection">
-      <h3>Eating</h3>
-      <div class="gallery-container">
-        <div class="gallery" id="gallery4">
-          <img src="eating/IMG_0703.jpg">
-          <img src="eating/IMG_1165.JPG">
-          <img src="eating/IMG_6236.JPG">
-          <img src="eating/IMG_7112.JPG">
-          <img src="eating/IMG_7810.JPG">
-          <img src="eating/IMG_8443.jpg">
-        </div>
-      </div>
-    </div>
-
-    <div class="subsection">
-      <h3>Spend Time</h3>
-      <div class="gallery-container">
-        <div class="gallery" id="gallery5">
-          <img src="spendtime/FullSizeRender.jpg">
-          <img src="spendtime/IMG_4383.JPG">
-          <img src="spendtime/IMG_8501.jpg">
-          <img src="spendtime/IMG_2416.jpg">
-          <img src="spendtime/IMG_7850.JPG">
-          <img src="spendtime/IMG_6053.JPG">
-        </div>
-      </div>
+    <h3>Running</h3>
+    <div class="gallery">
+      <img class="fade-img" src="running/IMG_4025.jpg">
+      <img class="fade-img" src="running/IMG_4379.JPG">
+      <img class="fade-img" src="running/IMG_6158.JPG">
+      <img class="fade-img" src="running/IMG_6927.JPG">
+      <img class="fade-img" src="running/IMG_6998.JPG">
+      <img class="fade-img" src="running/IMG_9044.JPG">
     </div>
   </section>
 
   <!-- Video -->
-  <section id="video" class="section">
+  <section id="video" class="section fade-section">
     <h2>🥺</h2>
     <video controls>
       <source src="video/755f3d87d045470dbb3a4da521b30aa2.mp4" type="video/mp4">
@@ -368,7 +261,7 @@
   </section>
 
   <!-- 100 Reasons -->
-  <section id="reasons" class="section">
+  <section id="reasons" class="section fade-section">
     <h2>100 Reasons Why I Love You</h2>
     <ol>
        <li>บี๋ทำให้เค้ายิ้มออกได้ทุกวันเลย</li>
@@ -471,26 +364,14 @@
     <li>บี๋คือคนแรกที่เค้าอยากโทรหาในทุกเรื่องเลย</li>
     <li>บี๋ทำให้เค้าตื่นเต้นทุกครั้งตอนเจอกัน</li>
     <li>เพราะบี๋คือ...บี๋</li>
+
     </ol>
   </section>
 
   <footer>made with love for chokunchicken ♡</footer>
 
   <script>
-    // Letter open animation
-    const openLetter = document.getElementById('openLetter');
-    const envelope = document.getElementById('envelope');
-    const popup = document.getElementById('letterPopup');
-    const paperSound = document.getElementById('paperSound');
-
-    openLetter.addEventListener('click', () => {
-      envelope.classList.add('open');
-      paperSound.currentTime = 0;
-      paperSound.play();
-      setTimeout(() => popup.classList.add('fade-out'), 1800);
-    });
-
-    // Chokun slideshow
+    // Slideshow
     let slideIndex = 0;
     const slides = document.getElementById('slides');
     const totalSlides = slides.children.length;
@@ -502,6 +383,24 @@
       slideIndex = (slideIndex - 1 + totalSlides) % totalSlides;
       slides.style.transform = `translateX(-${slideIndex * 100}%)`;
     };
+
+    // Fade in sections
+    const fadeSections = document.querySelectorAll('.fade-section');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('fade-visible');
+      });
+    }, { threshold: 0.2 });
+    fadeSections.forEach(s => observer.observe(s));
+
+    // Fade images
+    const imgs = document.querySelectorAll('.fade-img');
+    const imgObs = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('show');
+      });
+    }, { threshold: 0.1 });
+    imgs.forEach(img => imgObs.observe(img));
   </script>
 </body>
 </html>
