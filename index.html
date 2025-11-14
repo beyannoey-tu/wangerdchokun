@@ -42,7 +42,7 @@
     .navbar .logo {
       font-family: 'Unbounded', sans-serif;
       font-weight: 700;
-      font-size: 18px;
+      font-size: 15px;
     }
     .nav-links a {
       margin-left: 15px;
@@ -201,7 +201,55 @@
     object-fit: cover;
   }
 }
+/* Galleries */
+.gallery-scroll {
+  display: flex;
+  overflow-x: auto;
+  overflow-y: hidden;
+  gap: 8px;
+  scroll-snap-type: x mandatory;
+  padding: 10px;
+  -webkit-overflow-scrolling: touch;
+}
 
+/* ค่าเริ่มต้น */
+.gallery-scroll img {
+  flex-shrink: 0;
+  scroll-snap-align: center;
+}
+
+/* จอใหญ่ (แท็บเล็ต/คอม) เห็นหลายรูปเรียงกัน */
+@media (min-width: 601px) {
+  .gallery-scroll img {
+    width: 180px;
+    height: 240px;
+    object-fit: cover;
+  }
+}
+
+/* จอเล็ก (มือถือ) เลื่อนทีละรูป */
+@media (max-width: 600px) {
+  .gallery-scroll {
+    scroll-behavior: smooth;
+  }
+
+  .gallery-scroll img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+  }
+}
+
+/* รูปใน 100 reasons ให้เป็นแนวนอน */
+.gallery-reasons img {
+  width: 100%;
+  max-width: 700px;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  margin: 0 auto;
+}
     /* Video */
     /* YouTube Video */
 .video-container {
@@ -299,7 +347,7 @@
   </section>
 
 
-  <section id="moments" class="fade-section section-cream">
+  <section id="moments" class="fade-section section-dark">
     <h2>Me and You ♡ </h2>
 
     <h3>My Photobooth Duo</h3>
@@ -339,10 +387,9 @@
       <img src="eating/IMG_6236.JPG" loading="lazy">
       <img src="eating/IMG_7112.JPG" loading="lazy">
       <img src="eating/IMG_7494.jpg" loading="lazy">
-      <img src="eating/IMG_7419.jpg" loading="lazy">
       <img src="eating/IMG_7810.JPG" loading="lazy">
       <img src="eating/IMG_7419.jpg" loading="lazy">
-      <img src="eating/IMG_8443.jpg">
+      <img src="eating/IMG_8443.jpg" loading="lazy">
       <img src="eating/IMG_0250.jpg">
     </div>
 
@@ -359,9 +406,9 @@
       <img src="spendtime/IMG_7850.JPG" loading="lazy">
       <img src="spendtime/C4FF7218-5463-42BD-B387-69DCF552F153.jpg" loading="lazy">
       <img src="spendtime/IMG_6053.JPG" loading="lazy">
-      <img src="spendtime/IMG_6322.jpg" loading="lazy">
+      <img src="spendtime/IMG_6322.jpg">
       <img src="spendtime/IMG_6347.jpg" loading="lazy">
-      <img src="spendtime/IMG_6597.JPG" loading="lazy">
+      <img src="spendtime/IMG_6597.JPG">
       <img src="spendtime/IMG_1822.jpg" loading="lazy">
       <img src="spendtime/IMG_6767.JPG" loading="lazy">
       <img src="spendtime/IMG_9177.jpg">
@@ -385,11 +432,10 @@
 
   <!-- 100 Reasons -->
   <section id="reasons" class="fade-section section-oat">
-    <h2>100 Reasons Why I Love You</h2>
-        <h3>Eating with chokun, More delicious 100%</h3>
-    <div class="gallery-scroll">
-      <img src="drive/IMG_4624.jpg" loading="lazy">
-    </div>
+  <h2>100 Reasons Why I Love You</h2>
+  <div class="gallery-scroll gallery-reasons">
+    <img src="drive/IMG_4624.jpg" loading="lazy">
+  </div>
     <ol>
     <li>บี๋ใจดีมากก แค่กับเค้าาา</li>
     <li>บี๋ทำให้เค้ายิ้มได้ทู้กกกกวัน แค่เห็นหน้าบี๋</li>
